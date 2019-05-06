@@ -28,3 +28,17 @@
 .likes {
     padding: 10px;
 }
+
+.likes .reaction-icons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.comment-input {
+    padding: 0 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
