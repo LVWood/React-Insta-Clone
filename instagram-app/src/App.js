@@ -14,9 +14,13 @@ class App extends React.Component {
   }
   render () {
     return (
-      this.state.dummyData.map(item => {
-        return <PostContainer item={item}/>
-      })
+      <div>
+        <SearchBar />
+        {this.state.dummyData.map(item => {
+        return <PostContainer item={item} />
+        })}
+      </div>
+
     )
   }
 }
