@@ -1,6 +1,8 @@
 import React from 'react';
 import CommentSection from '../CommentSection/CommentSection';
 import PropTypes from 'prop-types';
+import open_heart from './open_heart.png';
+import quotebubble from './quotebubble.png';
 
 import './PostContainer.css';
 import App from '../../App';
@@ -18,8 +20,10 @@ const PostContainer = props => {
             </div>
             <div className="likes">
                 <div className="reaction-icons">
+                    <img className="img-logo" src={open_heart} alt="logo"></img>
+                    <img className="img-logo" src={quotebubble} alt="logo"></img>
                 </div>
-                <p>{props.item.likes} likes</p>
+                <p><strong>{props.item.likes} likes</strong></p>
 
             </div>
             {props.item.comments.map(comment => {
@@ -36,17 +40,6 @@ const PostContainer = props => {
         </div>
         </div>
     )
-    PostContainer.propTypes = {
-        username: PropTypes.string,
-        thumbnailUrl: PropTypes.string,
-        imageUrl: PropTypes.string,
-        likes: PropTypes.number,
-        timestamp: PropTypes.string,
-        comments: PropTypes.shape({
-            username: PropTypes.string,
-            text: PropTypes.string
-        })
-}
 }
 
 export default PostContainer;

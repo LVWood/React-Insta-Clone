@@ -24,6 +24,11 @@
     width: 600px;
     object-fit: contain;
 }
+.likes .img-logo {
+    width: 30px;
+    padding: 10px;
+    object-fit: contain;
+}
 
 .likes {
     padding: 10px;
