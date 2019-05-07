@@ -12,3 +12,11 @@
     line-height: 1rem;
     margin: 0;
 }
+
+.comment-input {
+    padding: 0 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}

@@ -5,7 +5,6 @@ import open_heart from './open_heart.png';
 import quotebubble from './quotebubble.png';
 
 import './PostContainer.css';
-import App from '../../App';
 
 const PostContainer = props => {
 
@@ -41,5 +40,16 @@ const PostContainer = props => {
         </div>
     )
 }
+
+PostContainer.propTypes = {
+    comments: PropTypes.shape({
+        username: PropTypes.string.isRequired,
+        comments: PropTypes.arrayOf(PropTypes.object),
+        imageUrl: PropTypes.string.isRequired,
+        likes: PropTypes.number.isRequired,
+        thumbnailUrl: PropTypes.string.isRequired,
+        timestamp: PropTypes.string.isRequired,
+    })
+};
 
 export default PostContainer;
