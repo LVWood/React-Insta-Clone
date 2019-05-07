@@ -1,8 +1,9 @@
 import React from 'react';
 import CommentSection from '../CommentSection/CommentSection';
+import AddComment from '../../AddComment/AddComment';
+import Likes from '../Likes/Likes';
 import PropTypes from 'prop-types';
-import open_heart from './open_heart.png';
-import quotebubble from './quotebubble.png';
+
 
 import './PostContainer.css';
 
@@ -17,14 +18,7 @@ const PostContainer = props => {
             <div className="main-image">
                 <img src={props.item.imageUrl} alt=""></img>
             </div>
-            <div className="likes">
-                <div className="reaction-icons">
-                    <img className="img-logo" src={open_heart} alt="logo"></img>
-                    <img className="img-logo" src={quotebubble} alt="logo"></img>
-                </div>
-                <p><strong>{props.item.likes} likes</strong></p>
-
-            </div>
+            <Likes likes={props.item.likes}/>
             {props.item.comments.map(comment => {
                 return <CommentSection 
                     comment={comment}
@@ -34,8 +28,7 @@ const PostContainer = props => {
                 />
             })} 
             <div className="comment-input">
-                <p>Add a comment...</p>
-                <input type="hidden" value=""></input>
+                <AddComment />
         </div>
         </div>
     )
@@ -43,12 +36,12 @@ const PostContainer = props => {
 
 PostContainer.propTypes = {
     comments: PropTypes.shape({
-        username: PropTypes.string.isRequired,
+        username: PropTypes.string,
         comments: PropTypes.arrayOf(PropTypes.object),
-        imageUrl: PropTypes.string.isRequired,
-        likes: PropTypes.number.isRequired,
-        thumbnailUrl: PropTypes.string.isRequired,
-        timestamp: PropTypes.string.isRequired,
+        imageUrl: PropTypes.string,
+        likes: PropTypes.number,
+        thumbnailUrl: PropTypes.string,
+        timestamp: PropTypes.string,
     })
 };
 
