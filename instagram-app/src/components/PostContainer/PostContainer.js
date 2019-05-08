@@ -1,6 +1,7 @@
 import React from 'react'
 import CommentSection from '../CommentSection/CommentSection'
 import Likes from '../Likes/Likes'
+import AddComment from '../AddComment/AddComment'
 import './PostContainer.css'
 
 
@@ -16,8 +17,15 @@ const PostContainer = props => {
                 <img src={props.post.imageUrl} alt="" />
             </div>
             <Likes likes={props.post.likes} />
-             
-            <CommentSection />
+             {props.post.comments.map(comment => {
+                 return <CommentSection comment={comment.text} username={comment.username} key={comment} />
+             })}
+            <AddComment 
+                newComment={props.inputText} 
+                newUsername={props.inputUsername}
+                addComment={props.addComment}
+                handleChange={props.handleChange}
+            />
         </div>
     )
 }
