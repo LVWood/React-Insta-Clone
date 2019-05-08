@@ -4,9 +4,7 @@ import Likes from '../Likes/Likes'
 import AddComment from '../AddComment/AddComment'
 import './PostContainer.css'
 
-
-const PostContainer = props => {
-    console.log("PostContainer props: ", props);
+const PostContainer = () => {
     return (
         <div className="post-container">
             <div className="post-header">
@@ -17,16 +15,20 @@ const PostContainer = props => {
                 <img src={props.post.imageUrl} alt="" />
             </div>
             <Likes likes={props.post.likes} />
-             {props.post.comments.map(comment => {
-                 return <CommentSection comment={comment.text} username={comment.username} key={comment} />
+             {props.post.comments.map(comment,key) => {
+                 return (
+                 <CommentSection 
+                    comment={comment.text} 
+                    username={comment.username} 
+                    key={key} 
+                    addComment={props.addComment} />
+                 )
              })}
             <AddComment 
-                newComment={props.inputText} 
-                newUsername={props.inputUsername}
-                addComment={props.addComment}
-                handleChange={props.handleChange}/>
+                post={props.post} {...props}/>
         </div>
     )
 }
+
 
 export default PostContainer

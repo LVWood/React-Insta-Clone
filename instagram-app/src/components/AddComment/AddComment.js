@@ -4,21 +4,21 @@ import './AddComment.css'
 class AddComment extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            props: this.props
-        }
+        this.state = {}
     }
 
-componentDidMount() {
-    this.setState({
-        newComment: this.state.text,
-        newUsername: this.state.username
-    })
-}
+    addComment = e => {
+        e.preventDefault();
+           this.props.post.comments.push({
+             username:this.props.inputUsername,
+             text:this.props.inputText
+           })
+           console.log("added")
+      };
 
 render() {
     return (
-        <form className="comment-form" onSubmit={this.props.addComment}>
+        <form className="comment-form" onSubmit={e => this.props.addComment(e,this.props.post)}>
             <p><strong>Add comment...</strong></p>
             <input 
                 type="text" 

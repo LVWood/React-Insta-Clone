@@ -18,15 +18,16 @@ class App extends React.Component {
     this.setState({
       [e.target.name]: e.target.value
     });
-    console.log("handleChange invoked here: ", e.target.name);
   };
 
-  addComment = e => {
+  addComment = (e, post) => {
     e.preventDefault();
-    this.setState({
-      data: [ ...this.state.data, {newComment: this.state.inputText, newUsername: this.state.inputUsername}],
-      inputText: '',
-      inputUsername: '',
+
+    post.comments.push({
+      username: this.state.inputUsername,
+      text: this.state.inputText
+    })
+    this.setState({ ...this.state.data, inputText: '', inputUsername: '',
     });
   };
 
@@ -39,7 +40,12 @@ class App extends React.Component {
           handleChange={this.handleChange} />
         
         {this.state.data.map(post => {
-          return <PostContainer post={post} key={post.timestamp} />
+          return <PostContainer 
+            {...this.state}
+            post={post} 
+            key={post.timestamp}
+            addComment={this.addComment}
+            handleChange={this.handleChange} />
         })}
       
       </div>
