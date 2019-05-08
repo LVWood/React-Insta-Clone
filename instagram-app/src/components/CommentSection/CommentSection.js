@@ -8,7 +8,6 @@ const CommentSection = props => {
             <p>{props.comment}</p>
         </div>
     )
-    
 }
 
 export default CommentSection

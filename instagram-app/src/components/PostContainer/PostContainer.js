@@ -24,8 +24,7 @@ const PostContainer = props => {
                 newComment={props.inputText} 
                 newUsername={props.inputUsername}
                 addComment={props.addComment}
-                handleChange={props.handleChange}
-            />
+                handleChange={props.handleChange}/>
         </div>
     )
 }

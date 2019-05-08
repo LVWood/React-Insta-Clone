@@ -22,13 +22,9 @@ class App extends React.Component {
   };
 
   addComment = e => {
-    console.log("button clicked");
     e.preventDefault();
     this.setState({
-      data: [
-        ...this.state.data,
-        {newComment: this.state.inputText, newUsername: this.state.inputUsername}
-      ],
+      data: [ ...this.state.data, {newComment: this.state.inputText, newUsername: this.state.inputUsername}],
       inputText: '',
       inputUsername: '',
     });
@@ -36,24 +32,16 @@ class App extends React.Component {
 
   render(){
     return (
-      <div>
-        <SearchBar />
-
+      <div className="app-container">
+        <SearchBar 
+          inputText={this.state.data.inputText}
+          searchFn={this.searchFn}
+          handleChange={this.handleChange} />
+        
         {this.state.data.map(post => {
-          return <PostContainer 
-            post={post} 
-            key={post.timestamp}
-            username={this.state.data.username}
-            thumbnailUrl={this.state.data.thumbnailUrl}
-            imageUrl={this.state.data.imageUrl}
-            likes={this.state.data.likes}
-            comments={this.state.data.comments}
-            handleChange={this.handleChange}
-            inputText={this.state.data.inputText}
-            inputUsername={this.state.data.Username}
-            addComment={this.addComment}
-            />
+          return <PostContainer post={post} key={post.timestamp} />
         })}
+      
       </div>
     )
   }
