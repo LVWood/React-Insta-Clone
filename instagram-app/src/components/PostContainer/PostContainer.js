@@ -1,48 +1,25 @@
-import React from 'react';
-import CommentSection from '../CommentSection/CommentSection';
-import AddComment from '../../AddComment/AddComment';
-import Likes from '../Likes/Likes';
-import PropTypes from 'prop-types';
+import React from 'react'
+import CommentSection from '../CommentSection/CommentSection'
+import Likes from '../Likes/Likes'
+import './PostContainer.css'
 
-
-import './PostContainer.css';
 
 const PostContainer = props => {
-
+    console.log("PostContainer props: ", props);
     return (
         <div className="post-container">
             <div className="post-header">
-                <img src={props.item.thumbnailUrl} alt=""></img>
-                <p className="username"><strong>{props.item.username}</strong></p>
+                <img src={props.post.thumbnailUrl} alt="" />
+                <p><strong>{props.post.username}</strong></p>
             </div>
             <div className="main-image">
-                <img src={props.item.imageUrl} alt=""></img>
+                <img src={props.post.imageUrl} alt="" />
             </div>
-            <Likes likes={props.item.likes}/>
-            {props.item.comments.map(comment => {
-                return <CommentSection 
-                    comment={comment}
-                    key={comment.id} 
-                    text={comment.text} 
-                    username={comment.username}
-                />
-            })} 
-            <div className="comment-input">
-                <AddComment />
-        </div>
+            <Likes likes={props.post.likes} />
+             
+            <CommentSection />
         </div>
     )
 }
 
-PostContainer.propTypes = {
-    comments: PropTypes.shape({
-        username: PropTypes.string,
-        comments: PropTypes.arrayOf(PropTypes.object),
-        imageUrl: PropTypes.string,
-        likes: PropTypes.number,
-        thumbnailUrl: PropTypes.string,
-        timestamp: PropTypes.string,
-    })
-};
-
-export default PostContainer;
+export default PostContainer

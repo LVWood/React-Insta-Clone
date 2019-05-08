@@ -1,40 +1,40 @@
-import React from 'react';
-import dummyData from './dummy-data';
-import SearchBar from './components/SearchBar/SearchBar';
-import PropTypes from 'prop-types';
-import PostContainer from './components/PostContainer/PostContainer';
-import './App.css';
+import React from 'react'
+import SearchBar from './components/SearchBar/SearchBar'
+import PostContainer from './components/PostContainer/PostContainer'
+import AddComment from './components/AddComment/AddComment'
+import dummyData from './dummyData'
 
 
 class App extends React.Component {
   constructor() {
     super();
-    this.state = {
-      dummyData: dummyData
+    this.state={
+      data: dummyData
     }
   }
 
-  componentDidMount() {
-    this.setState = {
-      dummyData: dummyData
-    }
-  }
-
-  render () {
+  render(){
     return (
       <div>
-        <SearchBar onChange=''/>
-        {this.state.dummyData.map(item => {
-        return <PostContainer item={item} key={item.timestamp}/>
-        })}
-      </div>
+        <SearchBar />
 
+        {this.state.data.map(post => {
+          return <PostContainer 
+            post={post} 
+            key={post.timestamp}
+            username={this.state.data.username}
+            thumbnailUrl={this.state.data.thumbnailUrl}
+            imageUrl={this.state.data.imageUrl}
+            likes={this.state.data.likes}
+            comments={this.state.data.comments}
+
+            />
+        })}
+
+        <AddComment />
+      </div>
     )
   }
 }
-
-App.propTypes = {
-  dummyData: PropTypes.arrayOf(PropTypes.object)
-  };
 
 export default App;
