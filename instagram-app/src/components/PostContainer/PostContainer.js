@@ -1,32 +1,31 @@
-import React from 'react'
-import CommentSection from '../CommentSection/CommentSection'
-import Likes from '../Likes/Likes'
-import AddComment from '../AddComment/AddComment'
-import './PostContainer.css'
+import React from 'react';
+import PostHeader from './PostHeader/PostHeader';
+import MainImage from './MainImage/MainImage';
+import CommentSection from './CommentSection/CommentSection';
 
-const PostContainer = props => {
-    return (
-        <div className="post-container">
-            <div className="post-header">
-                <img src={props.post.thumbnailUrl} alt="" />
-                <p><strong>{props.post.username}</strong></p>
+
+
+class PostContainer extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+           post: props
+        }
+    }
+
+
+
+
+    render() {
+        console.log("from PostContainer: ", this.props);
+        return (
+            <div className="post-container">
+                <PostHeader thumbnail={this.props.thumbnailUrl} username={this.props.username} />
+                <MainImage mainImage={this.props.imageUrl} />
+                <CommentSection comments={this.props.comments} />
             </div>
-            <div className="main-image">
-                <img src={props.post.imageUrl} alt="" />
-            </div>
-            <Likes likes={props.post.likes} />
-             {props.post.comments.map((comment,key) => {
-                 return <CommentSection 
-                    comment={comment.text} 
-                    username={comment.username} 
-                    key={key} 
-                    addComment={props.addComment} />
-             })}
-            <AddComment 
-                post={props.post} {...props}/> 
-        </div>
-    )
+            )
+    }
 }
 
-
-export default PostContainer
+export default PostContainer;

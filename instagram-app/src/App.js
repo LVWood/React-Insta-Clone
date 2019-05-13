@@ -1,53 +1,21 @@
-import React from 'react'
-import SearchBar from './components/SearchBar/SearchBar'
-import PostContainer from './components/PostContainer/PostContainer'
-import dummyData from './dummyData'
-
+import React from 'react';
+import dummyData from './dummyData';
+import SearchBar from './components/SearchBar/SearchBar';
+import PostContainer from './components/PostContainer/PostContainer';
 
 class App extends React.Component {
   constructor() {
     super();
-    this.state={
-      data: dummyData,
-      inputText: '',
-      inputUsername: '',
-    };
+    this.state = {
+    data: dummyData
+    }
   }
 
-  handleChange = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  };
-
-  addComment = (e, post) => {
-    e.preventDefault();
-
-    post.comments.push({
-      username: this.state.inputUsername,
-      text: this.state.inputText
-    })
-    this.setState({ ...this.state.data, inputText: '', inputUsername: '',
-    });
-  };
-
-  render(){
+  render() {
     return (
       <div className="app-container">
-        <SearchBar 
-          inputText={this.state.data.inputText}
-          searchFn={this.searchFn}
-          handleChange={this.handleChange} />
-        
-        {this.state.data.map(post => {
-          return <PostContainer 
-            {...this.state}
-            post={post} 
-            key={post.timestamp}
-            addComment={this.addComment}
-            handleChange={this.handleChange} />
-        })}
-      
+        <SearchBar /> 
+        {this.state.data.map(post => { return <PostContainer post={post} /> } )}
       </div>
     )
   }

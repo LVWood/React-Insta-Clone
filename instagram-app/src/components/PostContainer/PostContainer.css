@@ -24,21 +24,7 @@
     width: 600px;
     object-fit: contain;
 }
-.likes .img-logo {
-    width: 30px;
-    padding: 10px;
-    object-fit: contain;
-}
 
-.likes {
-    padding: 10px;
-}
-
-.likes .reaction-icons {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
 
 .comment-input {
     padding: 0 10px;
