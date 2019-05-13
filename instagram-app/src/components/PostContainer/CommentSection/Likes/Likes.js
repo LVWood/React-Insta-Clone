@@ -10,9 +10,9 @@ const Likes = props => {
                 <img className="icons" src={open_heart} alt="" />
                 <img className="icons" src={quotebubble} alt="" />
             </div>
-            <p><strong>likes </strong>{props.likes}</p>
+            <p><strong>{props.likes} likes </strong></p>
         </div>   
     )
 }
 
-export default Likes
+export default Likes;

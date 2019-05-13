@@ -2,6 +2,7 @@ import React from 'react';
 import dummyData from './dummyData';
 import SearchBar from './components/SearchBar/SearchBar';
 import PostContainer from './components/PostContainer/PostContainer';
+import PropTypes from 'prop-types';
 
 class App extends React.Component {
   constructor() {
@@ -20,5 +21,9 @@ class App extends React.Component {
     )
   }
 }
+
+App.defaultProps = {
+  dummyDate: []
+};
 
 export default App;

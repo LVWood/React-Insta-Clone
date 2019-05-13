@@ -1,8 +1,13 @@
 import React from 'react';
+import './MainImage.css';
 
 const MainImage = props => {
-    console.log("props from MainImage: ", props);
-    return <img src={props.mainImage} alt=''></img>
+    return (
+        <div className="main-image">
+            <img src={props.mainImage} alt=''></img>
+        </div>
+    )
+    
 }
 
 export default MainImage;

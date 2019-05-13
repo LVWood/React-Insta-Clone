@@ -2,30 +2,19 @@ import React from 'react';
 import PostHeader from './PostHeader/PostHeader';
 import MainImage from './MainImage/MainImage';
 import CommentSection from './CommentSection/CommentSection';
+import './PostContainer.css';
 
 
+const PostContainer = props => {
+    console.log("PostContainer props = ", props);
 
-class PostContainer extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-           post: props
-        }
-    }
-
-
-
-
-    render() {
-        console.log("from PostContainer: ", this.props);
-        return (
-            <div className="post-container">
-                <PostHeader thumbnail={this.props.thumbnailUrl} username={this.props.username} />
-                <MainImage mainImage={this.props.imageUrl} />
-                <CommentSection comments={this.props.comments} />
-            </div>
-            )
-    }
+    return (
+        <div className="post-container">
+            <PostHeader thumbnail={props.post.thumbnailUrl} username={props.post.username} />
+            <MainImage mainImage={props.post.imageUrl} />
+            <CommentSection comments={props.post.comments} likes={props.post.likes}/>
+        </div>
+        )
 }
 
 export default PostContainer;

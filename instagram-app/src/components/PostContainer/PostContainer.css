@@ -1,28 +1,7 @@
 .post-container {
     max-width: 600px;
     border: 1px solid lightgray;
-}
-
-.post-header {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 5px 10px;
-}
-
-.post-header img {
-    max-width: 30px;
-    max-height: 30px;
-    border-radius: 100%;
-}
-
-.post-header p {
-    padding: 0 10px;
-}
-
-.main-image img {
-    width: 600px;
-    object-fit: contain;
+    margin: 10px;
 }
 
 

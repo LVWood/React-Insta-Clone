@@ -1,4 +1,4 @@
-.comment-section {
+.posted-comments {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -8,8 +8,9 @@
 
 }
 
-.comment-section p {
+.posted-comments p {
     padding: 0 2px 5px 0;
     line-height: 1rem;
     margin: 0;
 }
+
