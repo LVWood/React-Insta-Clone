@@ -1,7 +1,14 @@
 import React from 'react';
+import InstagramLogos from './InstagramLogos';
 
 const SearchBar = () => {
-    return <h1>Instagram SearchBar Header</h1>
+    return (
+        <div className="search-bar">
+            <InstagramLogos />
+            <SearchForm />
+            <Icons />
+        </div>
+    )
 }
 
 export default SearchBar;
