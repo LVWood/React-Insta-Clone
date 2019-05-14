@@ -2,16 +2,19 @@ import React from 'react';
 import './AddComment.css';
 
 const AddComment = props => {
+    console.log('AddComment props: ', props);
     return (
-        <form className="comment-form">
+        <form className="comment-form" onSubmit={props.addComment}>
             <input 
-                value={props.user} 
+                value={props.username} 
+                name='username'
                 placeholder='username'
-                onChange={props.handleChanges} />
+                onChange={props.handleInput} />
             <input 
-                value={props.comment} 
+                value={props.text} 
+                name='text'
                 placeholder='comment' 
-                onChange={props.handleChanges}/>
+                onChange={props.handleInput}/>
             <button onClick={props.addComment}>submit</button>
         </form>
     )

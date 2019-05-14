@@ -1,9 +1,9 @@
 import React from 'react';
 
-const SearchForm = () => {
+const SearchForm = props => {
     return (
         <form>
-            <input value='' placeholder=""></input>
+            <input value='' placeholder="" onChange={props.handleChanges}></input>
             <button>search</button>
         </form>
     )

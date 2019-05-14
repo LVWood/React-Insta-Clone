@@ -10,40 +10,40 @@ class CommentSection extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            comment: this.props.comments.text,
-            user: this.props.comments.username
+            comments: this.props.comments,
+        currentComment: {username: this.props.comments.username, text: this.props.comments.text}
         }
     }
 
-    handleChanges = e => {
+    handleInput = e => {
         this.setState({
-            comment: e.target.value,
-            user: e.target.value 
-        })
+            currentComment: {...this.state.currentComment, [e.target.name]: e.target.value }
+        });
     }
 
     addComment = e => {
-    const newComment = e.target.value
-    const newUser = e.target.value
         e.preventDefault();
+        console.log('in addComment, log button clicked');
+        const newComment = this.state.currentComment
+        const comments = [...this.state.comments, newComment]
         this.setState({
-            comment: {...this.state.comment,  newComment},
-            user: {...this.state.user, newUser}
+            comments: comments,
+            currentComment: { username: '', text: ''}
         });
-        this.setState({
-            comment: '',
-            user: ''
-        })
     }
 
     render() {
         return (
             <div className="comment-section">
                 <Likes likes={this.props.likes}/>
-                {this.props.comments.map(comment => {
+                {this.state.comments.map(comment => {
                     return <PostedComments username={comment.username} text={comment.text} />
                 })}
-                <AddComment handleChanges={this.handleChanges} addComment={this.addComment}/>
+                <AddComment 
+                    handleInput={this.handleInput} 
+                    addComment={this.addComment} 
+                    text={this.state.currentComment.text} 
+                    username={this.state.currentComment.username}/>
             </div>
             )
     }

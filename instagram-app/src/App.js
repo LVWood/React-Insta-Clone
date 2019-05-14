@@ -28,7 +28,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="app-container">
-        <SearchBar /> 
+        <SearchBar handleChanges={this.handleChanges} search={this.state.search}/> 
         {this.state.data.map(post => { return <PostContainer post={post} /> } )}
       </div>
     )
@@ -40,7 +40,7 @@ App.propTypes = {
 };
 
 App.defaultProps = {
-  dummyDate: []
+  dummyData: []
 };
 
 export default App;

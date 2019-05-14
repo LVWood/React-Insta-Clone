@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import PostHeader from './PostHeader/PostHeader';
 import MainImage from './MainImage/MainImage';
 import CommentSection from './CommentSection/CommentSection';
@@ -16,5 +17,13 @@ const PostContainer = props => {
         </div>
         )
 }
+
+PostContainer.propTypes = {
+    props: PropTypes.arrayOf(PropTypes.object)
+  };
+  
+  PostContainer.defaultProps = {
+    dummyDate: []
+  };
 
 export default PostContainer;
