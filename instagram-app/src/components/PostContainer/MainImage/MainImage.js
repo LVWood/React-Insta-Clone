@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './MainImage.css';
 
 const MainImage = props => {
@@ -9,5 +10,13 @@ const MainImage = props => {
     )
     
 }
+
+MainImage.propTypes = {
+    props: PropTypes.string
+}
+
+MainImage.defaultProps = {
+    props: ''
+  };
 
 export default MainImage;
