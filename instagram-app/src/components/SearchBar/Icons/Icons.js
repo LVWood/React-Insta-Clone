@@ -1,15 +1,15 @@
-import React from 'react'
-import './compass.png';
-import './open_heart.png';
-import './person.png';
+import React from 'react';
+import compass from './compass.png';
+import open_heart from './open_heart.png';
+import person from './person.png';
+import './Icons.css';
 
 const Icons = () => {
     return (
-        <div>
-            <img></img>
-            <img></img>
-            <img></img>
-            
+        <div className="right-logos">
+            <img src={compass} alt='' />
+            <img src={open_heart} alt='' />
+            <img src={person} alt='' /> 
         </div>
     )
 }

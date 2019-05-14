@@ -1,0 +1,11 @@
+.right-logos {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.right-logos img {
+    width: 45px;
+    padding: 10px;
+    object-fit: contain;
+}
