@@ -35,7 +35,6 @@ class CommentSection extends React.Component {
     
     addComment = e => {
         e.preventDefault();
-        console.log('in addComment, log button clicked');
         const newComment = this.state.currentComment
         const comments = [...this.state.comments, newComment]
         this.setState({

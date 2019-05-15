@@ -1,5 +1,5 @@
 .main-image img {
-    width: 600px;
+    max-width: 598px;
     object-fit: contain;
 
 
