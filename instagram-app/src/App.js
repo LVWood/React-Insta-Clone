@@ -1,9 +1,11 @@
 import React from 'react';
 import dummyData from './dummyData';
-import SearchBar from './components/SearchBar/SearchBar';
-import PostsPage from './components/PostContainer/PostsPage/PostsPage'
-import PostContainer from './components/PostContainer/PostContainer';
+import PostsPage from './components/PostsPage/PostsPage'
+import LoginPage from './components/PostsPage/authentication/LoginPage'
+import withAuthenticate from './components/PostsPage/authentication/withAuthenticate'
+
 import PropTypes from 'prop-types';
+
 
 class App extends React.Component {
   constructor() {
@@ -20,34 +22,9 @@ class App extends React.Component {
     })
   }
 
-  handleChanges = e => {
-    this.setState({
-     search: e.target.value
-     });
-  }
-
-  filterSearch = e => {
-    e.preventDefault();
-    if (this.state.search === this.state.data.username) {
-      this.state.data.filter(item => {
-        this.setState({
-          data: item
-        })
-      })
-    } 
-  }
-
-
   render() {
     return (
-      <div className="app-container">
-        <SearchBar 
-          handleChanges={this.handleChanges} 
-          filterSearch={this.state.filterSearch}
-          search={this.state.search}/> 
-        <PostsPage />
-        {this.state.data.map(post => { return <PostContainer post={post} /> } )}
-      </div>
+     <PostsPage data={this.state.data} search={this.state.search} />
     )
   }
 }
@@ -60,4 +37,7 @@ App.defaultProps = {
   dummyData: []
 };
 
-export default App;
+
+const ComponentFromWithAuthenticate = withAuthenticate(PostsPage);
+
+export default withAuthenticate(App)(LoginPage)

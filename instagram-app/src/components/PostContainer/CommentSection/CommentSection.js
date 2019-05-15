@@ -11,10 +11,10 @@ class CommentSection extends React.Component {
         super(props);
         this.state = {
             comments: this.props.comments,
-        currentComment: {username: this.props.comments.username, text: this.props.comments.text},
-        likesCounter: this.props.likes,
-        click: true,
-        showForm: false
+            currentComment: {username: this.props.comments.username, text: this.props.comments.text},
+            likesCounter: this.props.likes,
+            click: true,
+            showForm: false
         }
     }
 
