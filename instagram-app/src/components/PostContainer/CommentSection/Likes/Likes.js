@@ -7,8 +7,8 @@ const Likes = props => {
     return (
         <div className="likes">
             <div className="icons">
-                <img className="icons" src={open_heart} alt="" />
-                <img className="icons" src={quotebubble} alt="" />
+                <img onClick={props.toggleClick} className="icons" src={open_heart} alt="" />
+                <img onClick={props.toggleCommentForm} className="icons" src={quotebubble} alt="" />
             </div>
             <p><strong>{props.likes} likes </strong></p>
         </div>   

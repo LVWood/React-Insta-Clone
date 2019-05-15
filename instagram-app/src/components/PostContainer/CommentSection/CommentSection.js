@@ -11,7 +11,10 @@ class CommentSection extends React.Component {
         super(props);
         this.state = {
             comments: this.props.comments,
-        currentComment: {username: this.props.comments.username, text: this.props.comments.text}
+        currentComment: {username: this.props.comments.username, text: this.props.comments.text},
+        likesCounter: this.props.likes,
+        click: true,
+        showForm: false
         }
     }
 
@@ -21,6 +24,15 @@ class CommentSection extends React.Component {
         });
     }
 
+    toggleClick = () => {
+        this.setState({ click: !this.state.click })
+        if (this.state.click === true) {
+            this.setState({ likesCounter: this.state.likesCounter + 1});
+        } else {
+            this.setState({ likesCounter: this.state.likesCounter - 1});
+        }
+    }
+    
     addComment = e => {
         e.preventDefault();
         console.log('in addComment, log button clicked');
@@ -32,18 +44,30 @@ class CommentSection extends React.Component {
         });
     }
 
+    toggleCommentForm = () => {
+        this.setState({ showForm: !this.state.showForm})
+    }
+
     render() {
         return (
             <div className="comment-section">
-                <Likes likes={this.props.likes}/>
+                <Likes 
+                    likes={this.state.likesCounter}  
+                    toggleClick={this.toggleClick}
+                    toggleCommentForm={this.toggleCommentForm} />
+                    
                 {this.state.comments.map(comment => {
-                    return <PostedComments username={comment.username} text={comment.text} />
+                    return <PostedComments 
+                    username={comment.username} 
+                    text={comment.text} />
                 })}
                 <AddComment 
                     handleInput={this.handleInput} 
                     addComment={this.addComment} 
                     text={this.state.currentComment.text} 
-                    username={this.state.currentComment.username}/>
+                    username={this.state.currentComment.username} 
+                    toggleCommentForm={this.toggleCommentForm}
+                    showForm={this.state.showForm} />
             </div>
             )
     }
