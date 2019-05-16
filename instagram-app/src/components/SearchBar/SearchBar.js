@@ -2,18 +2,18 @@ import React from 'react';
 import InstagramLogos from './InstagramLogos/InstagramLogos';
 import SearchForm from './SearchForm/SearchForm';
 import Icons from './Icons/Icons';
-import './SearchBar.css';
+import { SearchBarContainer } from './SearchBarStyles'
 
 const SearchBar = props => {
     return (
-        <div className="search-bar-container">
+        <SearchBarContainer >
             <InstagramLogos />
             <SearchForm 
                 handleChanges={props.handleChanges}
                 filterSearch={props.filterSearch}
                 search={props.search} />
             <Icons />
-        </div>
+        </SearchBarContainer>
     )
 }
 

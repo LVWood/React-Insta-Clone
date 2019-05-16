@@ -6,50 +6,39 @@ import PropTypes from 'prop-types';
 
 //const ComponentFromWithAuthenticate = withAuthenticate(PostsPage);
 
-class PostsPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    data: props.data,
-    search: props.search
-    }
-  }
+const PostsPage = props => {
 
-  componentDidMount() {
-    this.setState({
-      data: this.state.data
-    })
-  }
 
-  handleChanges = e => {
-    this.setState({
-     search: e.target.value
-     });
-  }
+  // handleChanges = e => {
+  //   this.setState({
+  //    search: e.target.value
+  //    });
+  // }
 
-  filterSearch = e => {
-    e.preventDefault();
-    if (this.state.search === this.state.data.username) {
-      this.state.data.filter(item => {
-        this.setState({
-          data: item
-        })
-      })
-    } 
-  }
+  // filterSearch = e => {
+  //   e.preventDefault();
+  //   if (this.state.search === this.state.data.username) {
+  //     this.state.data.filter(item => {
+  //       this.setState({
+  //         data: item
+  //       })
+  //     })
+  //   } 
+  // }
 
-  render() {
+  
     return (
       <div className="app-container">
         <SearchBar 
-          handleChanges={this.handleChanges} 
-          filterSearch={this.state.filterSearch}
-          search={this.state.search}/> 
-        {this.state.data.map(post => { return <PostContainer post={post} /> } )}
+          handleChanges={props.handleChanges} 
+          filterSearch={props.filterSearch}
+          search={props.Search}/> 
+        {props.data.map(post => { return <PostContainer post={post} filteredData={props.filteredData} /> } )}
       </div>
     )
   }
-}
+
+
 
 PostsPage.propTypes = {
   dummyData: PropTypes.arrayOf(PropTypes.object)

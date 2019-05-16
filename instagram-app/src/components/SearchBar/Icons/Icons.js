@@ -2,15 +2,15 @@ import React from 'react';
 import compass from './compass.png';
 import open_heart from './open_heart.png';
 import person from './person.png';
-import './Icons.css';
+import SearchBarStyles, { RightLogos, Logos } from '../SearchBarStyles'
 
 const Icons = () => {
     return (
-        <div className="right-logos">
-            <img src={compass} alt='' />
-            <img src={open_heart} alt='' />
-            <img src={person} alt='' /> 
-        </div>
+        <RightLogos>
+            <Logos src={compass} alt='' />
+            <Logos src={open_heart} alt='' />
+            <Logos src={person} alt='' /> 
+        </RightLogos>
     )
 }
 

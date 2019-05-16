@@ -1,15 +1,12 @@
 import React from 'react';
-import Instagram_simple_icon from './Instagram_simple_icon.png'; 
-import Instagram_text_logo from './Instagram_text_logo.png'
-import './InstagramLogos.css';
+import Instagram_icons from './Instagram_icons.png'; 
+import SearchBarStyles, { InstagramIcon } from '../SearchBarStyles'
+
+
 
 const InstagramLogos = () => {
-    return (
-    <div className="left-logos">
-        <img className="logo" src={Instagram_simple_icon} alt=''></img>
-        <img className="text" src={Instagram_text_logo} alt=''></img>
-    </div>
-    )
+    return <InstagramIcon src={Instagram_icons} alt=''></InstagramIcon>
+
 }
 
 export default InstagramLogos;

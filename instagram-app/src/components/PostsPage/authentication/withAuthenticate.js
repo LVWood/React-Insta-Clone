@@ -1,23 +1,17 @@
 import React from 'react'
 
-const withAuthenticate = (Component) => LoginPage => {
-    return (
-        class extends React.Component {
-            constructor() {
-                super();
-                this.state = {
+const withAuthenticate = (Component) => LoginPage => 
+    class extends React.Component {
 
-                }
-            }
+
     render() {
-        if (localStorage.username) {
+        if (localStorage.getItem('username')) {
             return <Component />
         } else {
             return <LoginPage />
+            }
         }
-        }
-    }
-    )
-}
+     } 
+
 
 export default withAuthenticate;
