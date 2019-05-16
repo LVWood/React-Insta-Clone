@@ -5,9 +5,9 @@ const SearchForm = props => {
         <form>
             <input 
                 name='search'
-                value={props.handleChanges}
+                value={props.search}
                 placeholder="" 
-                onChange={props.handleChanges}></input>
+                onChange={props.handleSearchInput}></input>
             <button onClick={props.filterSearch}>search</button>
         </form>
     )

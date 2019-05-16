@@ -1,5 +1,6 @@
 import React from 'react';
 import './AddComment.css';
+import { CommentsParagraph } from '../CommentSectionStyles'
 
 const AddComment = props => {
     return (

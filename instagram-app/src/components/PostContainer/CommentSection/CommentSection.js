@@ -2,9 +2,8 @@ import React from 'react';
 import Likes from './Likes/Likes';
 import PostedComments from './PostedComments/PostedComments';
 import AddComment from './AddComment/AddComment';
-import './CommentSection.css';
 import PropTypes from 'prop-types';
-
+import { CommentSectionDiv } from '../CommentSection/CommentSectionStyles'
 
 class CommentSection extends React.Component {
     constructor(props) {
@@ -49,7 +48,7 @@ class CommentSection extends React.Component {
 
     render() {
         return (
-            <div className="comment-section">
+            <CommentSectionDiv>
                 <Likes 
                     likes={this.state.likesCounter}  
                     toggleClick={this.toggleClick}
@@ -67,7 +66,7 @@ class CommentSection extends React.Component {
                     username={this.state.currentComment.username} 
                     toggleCommentForm={this.toggleCommentForm}
                     showForm={this.state.showForm} />
-            </div>
+            </CommentSectionDiv>
             )
     }
 }

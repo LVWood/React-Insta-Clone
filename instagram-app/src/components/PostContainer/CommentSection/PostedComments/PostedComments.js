@@ -1,12 +1,12 @@
 import React from 'react';
-import './PostedComments.css';
+import { PostedCommentsDiv, CommentsParagraph } from '../CommentSectionStyles'
 
 const PostedComments = props => {
     return (
-        <div className='posted-comments'>
-             <p><strong>{props.username}</strong></p>
-             <p>{props.text}</p>
-        </div>
+        <PostedCommentsDiv >
+             <CommentsParagraph><strong>{props.username}</strong></CommentsParagraph>
+             <CommentsParagraph>{props.text}</CommentsParagraph>
+        </PostedCommentsDiv >
     )
 }
 

@@ -1,11 +1,10 @@
 import React from 'react';
 import dummyData from './dummyData';
 import PostsPage from './components/PostsPage/PostsPage'
-import LoginPage from './components/PostsPage/authentication/LoginPage'
-import withAuthenticate from './components/PostsPage/authentication/withAuthenticate'
+// import withAuthenticate from './components/PostsPage/authentication/withAuthenticate'
 import PropTypes from 'prop-types';
 
-const ComponentFromWithAuthenticate = withAuthenticate(PostsPage);
+// const ComponentFromWithAuthenticate = withAuthenticate(PostsPage);
 
 class App extends React.Component {
   constructor() {
@@ -23,23 +22,32 @@ class App extends React.Component {
     })
   }
 
-  handleChanges = e => {
+  handleSearchInput = e => {
+    e.preventDefault();
       this.setState({
-       [e.target.name]: e.target.value
+       search : e.target.value
        });
     }
   
     filterSearch = e => {
       e.preventDefault();
-      const newArray = []
-      this.state.data.filter(item => {
-          if (item.username.includes(e.target.value)) {
-          this.setState({
-            data: newArray
-          })
-      };
-    })
-  } 
+      const filteredPosts = this.state.data.filter(item => {
+          if (item.username.includes(this.state.search)) {
+            return true; 
+          } else {
+            return false;
+          }
+        })
+      this.setState({
+        data: filteredPosts
+      })
+      }
+  
+
+  // renderPosts = e => {
+
+  // }
+    
   
 
   render() {
@@ -47,7 +55,7 @@ class App extends React.Component {
      <PostsPage 
       data={this.state.data} 
       filteredData={this.state.filteredData} 
-      handleChanges={this.handleChanges} 
+      handleSearchInput={this.handleSearchInput} 
       filterSearch={this.filterSearch}/>
     )
   }

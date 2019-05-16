@@ -9,7 +9,7 @@ const SearchBar = props => {
         <SearchBarContainer >
             <InstagramLogos />
             <SearchForm 
-                handleChanges={props.handleChanges}
+                handleSearchInput={props.handleSearchInput}
                 filterSearch={props.filterSearch}
                 search={props.search} />
             <Icons />
