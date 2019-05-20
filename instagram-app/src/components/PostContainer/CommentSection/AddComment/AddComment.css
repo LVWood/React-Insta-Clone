@@ -1,0 +1,13 @@
+.show-form  {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px 0 10px 5px;
+    max-width: 600px;
+    flex-wrap: wrap;
+
+}
+
+.hide-form {
+    display: none;
+}

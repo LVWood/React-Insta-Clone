@@ -1,0 +1,15 @@
+.left-logos {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.logo {
+    
+}
+
+.text {
+    width: 120px;
+    padding: 10px;
+    object-fit: contain;
+}
